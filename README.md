@@ -1,4 +1,4 @@
-# iExposé Minigaes: 
+# iExposé Minigames: 
 Person responsible: Lotte <br>
 <br>
 1. Storytelling <br>
