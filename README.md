@@ -1,14 +1,36 @@
 # Minigames fürs iExpose: 
 <br>
 1. Storytelling <br>
-<br>
+- Sprites 💕<br>
+- Sounds 💕💕💕<br>
+- Intro 💕<br>
+- Outro 💕<br>
+- Interaktion 💕💕<br>
 <br
 2. Lernen <br>
-<br>
+- Sprites 💕<br>
+- Sounds 💕<br>
+- Intro 💕<br>
+- Outro 💕<br>
+- Interaktion 💕<br>
 <br>
 3. Technik <br>
-<br>
+- Sprites 💕<br>
+- Sounds 💕<br>
+- Intro 💕<br>
+- Outro 💕<br>
+- Interaktion 💕💕<br>
 <br>
 4. Schattentheater <br>
+- Sprites 💕<br>
+- Sounds 💕<br>
+- Intro 💕<br>
+- Outro 💕<br>
+- Interaktion 💕<br>
 <br>
-<br>
+
+### Legend:
+💝 = done<br>
+💕 = not startet yet/waiting on it<br>
+💕💕 = in the making<br>
+💕💕💕 = almost done<br>
