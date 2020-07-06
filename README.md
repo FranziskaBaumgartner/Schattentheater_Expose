@@ -1,5 +1,5 @@
 # Minigames fürs iExpose: 
-Verantwortliche: Lotte <br><br>
+Verantwortliche: Lotte <br>
 <br>
 1. Storytelling <br>
 - Sprites 💕<br>
