@@ -1,33 +1,33 @@
-# Minigames fürs iExpose: 
-Verantwortliche: Lotte <br>
+# iExposé Minigaes: 
+Responsable: Lotte <br>
 <br>
 1. Storytelling <br>
 - Sprites 💕<br>
 - Sounds 💕💕<br>
 - Intro 💕<br>
 - Outro 💕<br>
-- Interaktion 💕💕<br>
+- Interaction 💕💕<br>
 <br>
 2. Lernen <br>
 - Sprites 💕<br>
 - Sounds 💕<br>
 - Intro 💕<br>
 - Outro 💕<br>
-- Interaktion 💕<br>
+- Interaction 💕<br>
 <br>
 3. Technik <br>
 - Sprites 💕<br>
 - Sounds 💕<br>
 - Intro 💕<br>
 - Outro 💕<br>
-- Interaktion 💕💕<br>
+- Interaction 💕💕<br>
 <br>
 4. Schattentheater <br>
 - Sprites 💕<br>
 - Sounds 💕<br>
 - Intro 💕<br>
 - Outro 💕<br>
-- Interaktion 💕<br>
+- Interaction 💕<br>
 <br>
 
 ### Legend:
