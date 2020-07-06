@@ -1,5 +1,5 @@
 # iExposé Minigaes: 
-Responsable: Lotte <br>
+Person responsible: Lotte <br>
 <br>
 1. Storytelling <br>
 - Sprites 💕<br>
