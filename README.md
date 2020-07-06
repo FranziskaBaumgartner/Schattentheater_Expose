@@ -2,7 +2,7 @@
 <br>
 1. Storytelling <br>
 - Sprites 💕<br>
-- Sounds 💕💕💕<br>
+- Sounds 💕💕<br>
 - Intro 💕<br>
 - Outro 💕<br>
 - Interaktion 💕💕<br>
