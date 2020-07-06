@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - flower
+  - basket
+  - glas
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - 
   - 
   - 
   - 
@@ -38,12 +41,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 1533479733
-    locked: 0
-  - name: Player
-    uniqueID: 577198925
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
