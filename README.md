@@ -6,7 +6,7 @@
 - Intro 💕<br>
 - Outro 💕<br>
 - Interaktion 💕💕<br>
-<br
+<br>
 2. Lernen <br>
 - Sprites 💕<br>
 - Sounds 💕<br>
