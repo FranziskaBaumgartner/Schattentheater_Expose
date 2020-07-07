@@ -1,62 +1,82 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-/*
- music plays on hover
- if another is playing this can't be played
- visual que that one is playing
- 
- */
+
 public class pics : MonoBehaviour
 {
-
-    private bool winning = false;
     private int hover = 0;
+    public AudioClip wrong;
+    public AudioClip picClip;
+    public dialogeManager talk;
+    public winning state;
     // Start is called before the first frame update
     void Start()
     {
- 
+        talk = talk.GetComponent<dialogeManager>();
+        state = state.GetComponent<winning>();
     }
 
-    // Update is called once per frame
+        // Update is called once per frame
     void Update()
     {
         if (hover == 1)
         {
             hover = -2;
             gameObject.GetComponent<AudioSource>().Play();
-            gameObject.GetComponent<Animator>();
+            
+            if (this.gameObject.tag == "vid")
+            {
+                print("animon");
+                gameObject.GetComponent<Animator>().SetTrigger("mouseOver");
+            }
+
         }
         else if (hover == 0)
         {
 
             gameObject.GetComponent<AudioSource>().Stop();
         }
+
     }
 
     private void OnMouseOver()
     {
-        if (hover==0)
-            hover=1;
-
+        if (talk.finished)
+        {
+            if (hover == 0)
+                hover = 1;
+            
+        }
+       
+    }
+    private void OnMouseExit()
+    {
+        if (talk.finished)
+        {
+            hover = 0;
+        }
     }
 
     private void OnMouseDown()
     {
-        
-        if (this.gameObject.tag == "glas")
+        if (this.gameObject.tag!="glas"&&talk.finished&&!state.won)
         {
-            this.gameObject.SetActive(false);
-            winning = true;
+            gameObject.GetComponent<AudioSource>().clip = wrong;
+            gameObject.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<AudioSource>().clip = picClip;
+
+            if (talk.npcIndex >= 7)
+                talk.npcIndex = 5;
+            else if (talk.npcIndex > 4)
+                talk.npcIndex++;
+            else
+                talk.npcIndex = 5;
+            
+            talk.StartCoroutine(talk.StartDialouge());
         }
     }
-    private void OnMouseExit()
-    {
-        hover=0;
-    }
 
 
 
 
-    }
+}
