@@ -7,12 +7,12 @@ public class pics : MonoBehaviour
     private int hover = 0;
     public AudioClip wrong;
     public AudioClip picClip;
-    public dialogeManager talk;
+    public StoryDialogeManager talk;
     public winning state;
     // Start is called before the first frame update
     void Start()
     {
-        talk = talk.GetComponent<dialogeManager>();
+        talk = talk.GetComponent<StoryDialogeManager>();
         state = state.GetComponent<winning>();
     }
 

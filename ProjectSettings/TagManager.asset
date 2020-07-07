@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - flower
-  - basket
+  - vid
   - glas
+  - storyTrigger
+  - lernTrigger
+  - technikTrigger
+  - schattenTrigger
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -41,6 +44,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1533479733
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Way
+    uniqueID: 3799242275
+    locked: 0
+  - name: Borders
+    uniqueID: 346408789
+    locked: 0
+  - name: Player
+    uniqueID: 577198925
     locked: 0

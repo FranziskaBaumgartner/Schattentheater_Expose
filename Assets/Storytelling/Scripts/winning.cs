@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class winning : MonoBehaviour
 {
-    public dialogeManager talk;
+    public StoryDialogeManager talk;
     public AudioClip bling;
     public Animator inventory;
     public bool won = false;
@@ -12,7 +12,7 @@ public class winning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        talk = talk.GetComponent<dialogeManager>();
+        talk = talk.GetComponent<StoryDialogeManager>();
         
 
     }
