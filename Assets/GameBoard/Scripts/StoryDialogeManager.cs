@@ -2,37 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Runtime.InteropServices.ComTypes;
 
 public class StoryDialogeManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI npcDialougeText;
+    public TextMeshPro npcDialougeText;
 
-    [SerializeField] private float typingSpeed = 0.05f;
+    public float typingSpeed = 0.05f;
     
     [TextArea]
-    [SerializeField] private string[] npcDialougeSentences;
+    public string[] npcDialougeSentences;
 
-    [SerializeField] private AudioClip[] npcSpeech;
+    public AudioClip[] npcSpeech;
 
-    [SerializeField] private GameObject continueButton;
-
-    [SerializeField] private Animator npcSpeechbubbleAnimator;
+    public Animator npcSpeechbubbleAnimator;
 
     public int npcIndex;
     private int speechIndex;
     public float SpeechbubbleAnimationsdelay = 0.6f;
     public bool finished = false;
 
+    public GameObject dialogBox;
 
+    public bool continueDialouge=true;
+
+    void Update()
+    {
+        if(dialogBox.activeSelf==false)
+        {
+            gameObject.GetComponent<AudioSource>().Pause();
+        }    
+    }
     public IEnumerator StartDialouge()
     {
-        npcSpeechbubbleAnimator.SetTrigger("open");
+        continueDialouge = false;
+        //npcSpeechbubbleAnimator.SetTrigger("open");
+        dialogBox.SetActive(true);
         finished = false;
         yield return new WaitForSeconds(SpeechbubbleAnimationsdelay);
         StartCoroutine(TypeNpcDiaglouge());
     }
    private IEnumerator TypeNpcDiaglouge()
     {
+        continueDialouge = false;
+        
         speechIndex = npcIndex;
         npcDialougeText.text = string.Empty;
         gameObject.GetComponent<AudioSource>().clip = npcSpeech[speechIndex];
@@ -42,32 +55,46 @@ public class StoryDialogeManager : MonoBehaviour
             npcDialougeText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        continueButton.SetActive(true);
+        npcIndex++;
+        if (npcIndex >= 5)
+        {
+            yield return new WaitForSeconds(SpeechbubbleAnimationsdelay);
+            
+            npcDialougeText.text = string.Empty;
+            //npcSpeechbubbleAnimator.SetTrigger("close");
+            dialogBox.SetActive(false);
+            finished = true;
+        }
+        continueDialouge = true;
     }
 
+    public void TriggerContinueDialogue()
+    {
+        continueDialouge = false;
+        if (npcIndex == 4)
+        {
+
+            npcDialougeText.text = string.Empty;
+            //npcSpeechbubbleAnimator.SetTrigger("close");
+            dialogBox.SetActive(false);
+            finished = true;
+        }
+        else
+            StartCoroutine(ContinueNpcDialouge());
+        
+    }
     private IEnumerator ContinueNpcDialouge()
     {
+        continueDialouge = false;
         yield return new WaitForSeconds(SpeechbubbleAnimationsdelay);
-        continueButton.SetActive(false);
-        if (npcIndex < npcDialougeSentences.Length - 1)
+        
+        if (npcIndex < npcDialougeSentences.Length)
         {
-            npcIndex++;
+           
             npcDialougeText.text = string.Empty;
             StartCoroutine(TypeNpcDiaglouge());
         }
     }
 
-    public void TriggerContinueDialogue()
-    {
-        if(npcIndex>= 3)
-        {
-            npcDialougeText.text = string.Empty;
-            npcSpeechbubbleAnimator.SetTrigger("close");
-            finished = true;
-        }
-        else
-        {
-            StartCoroutine(ContinueNpcDialouge());
-        }
-    }
+    
 }

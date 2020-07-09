@@ -446,7 +446,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577198925
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7e11a3dc73b1299439b34fcc75bae496, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 447441698}
   - component: {fileID: 447441700}
   m_Layer: 0
-  m_Name: DialougeManager
+  m_Name: StoryDialougeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 791038902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4562451f3a0bb4b4ab6ca26998aa5b4d, type: 3}
+  m_Script: {fileID: 11500000, guid: fa374fb4eb34a424ba617d99ae555692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 791038905}
@@ -1243,7 +1243,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577198925
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7e11a3dc73b1299439b34fcc75bae496, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b1ce5ed3a7b8c42b29d0ab14bb5302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talk: {fileID: 447441698}
+  storyTalk: {fileID: 447441698}
 --- !u!1 &795733546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,7 +2427,7 @@ MonoBehaviour:
   wrong: {fileID: 0}
   picClip: {fileID: 0}
   talk: {fileID: 447441698}
-  state: {fileID: 0}
+  state: {fileID: 1910426024}
 --- !u!82 &1910426020
 AudioSource:
   m_ObjectHideFlags: 0
