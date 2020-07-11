@@ -13,15 +13,22 @@ public class TechnikMinigameBS : MonoBehaviour
     public StoryDialogeManager dialouge;
     public GameObject inventory;
     public GameObject guard;
+    [SerializeField] private SpriteChanger yellow;
 
     void Start()
     {
         kamera = kamera.GetComponent<TechnikMinigameW>();
         dialouge = dialouge.GetComponent<StoryDialogeManager>();
+        yellow = yellow.GetComponent<SpriteChanger>();
     }
     
     void Update()
     {
+        if(dialouge.finished &&!kamera.won)
+            yellow.isActive = true;
+        else
+            yellow.isActive = false;
+
         if (Input.GetKeyDown(KeyCode.Space) && !kamera.won && dialouge.finished)
         {
             if (hover) 

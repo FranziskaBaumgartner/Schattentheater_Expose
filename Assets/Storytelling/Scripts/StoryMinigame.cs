@@ -12,16 +12,25 @@ public class StoryMinigame : MonoBehaviour
 
     public Animator video;
 
+    [SerializeField] private SpriteChanger yellow;
+
+
     // Start is called before the first frame update
     void Start()
     {
         talk = talk.GetComponent<StoryDialogeManager>();
         state = state.GetComponent<winningStory>();
+        yellow = yellow.GetComponent<SpriteChanger>();
+        
     }
 
         // Update is called once per frame
     void Update()
     {
+        if(talk.finished&&!state.won)
+            yellow.isActive = true;
+        else
+            yellow.isActive = false;
 
         if (Input.GetKeyDown(KeyCode.Space)&&hover==-2&&!state.won)
         {
@@ -33,40 +42,45 @@ public class StoryMinigame : MonoBehaviour
 
                 if (talk.npcIndex > 7)
                     talk.npcIndex = 5;
-                if(talk.npcIndex == 4)
-                {
-                    talk.npcIndex = 5;
-                }
 
+                if(talk.npcIndex == 4)
+                    talk.npcIndex = 5;
+                
                 talk.StartCoroutine(talk.StartDialouge());
             }
             
         }
         if (hover == 1)
         {
+            
             gameObject.GetComponent<AudioSource>().Play();
             hover = -2;
           
-            if (this.gameObject.tag == "vid")
-            {
-
-                video.SetTrigger("mouseOver");
-            }
+            
 
         }
         else if (hover == 0)
         {
 
             gameObject.GetComponent<AudioSource>().Stop();
-
+            if (this.gameObject.tag == "vid")
+                video.SetTrigger("left");
         }
-        
+
+
+        if (gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            if (this.gameObject.tag == "vid")
+                video.SetTrigger("mouseOver");
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (talk.finished)
+        if (talk.finished&&!state.won)
         {
+            if (this.gameObject.tag == "vid")
+                this.GetComponent<Animator>().enabled = true;
             if (hover == 0)
                 hover = 1;
 
@@ -76,9 +90,8 @@ public class StoryMinigame : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (talk.finished)
-        {
             hover = 0;
-        }
+        
     }
 
 

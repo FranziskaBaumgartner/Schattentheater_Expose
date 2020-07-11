@@ -10,11 +10,14 @@ public class speaker : MonoBehaviour
     public bool playerInRange;
 
     public StoryDialogeManager storyTalk;
+    [SerializeField] private SpriteChanger yellow;
+
     // Start is called before the first frame update
     void Start()
     {
         storyTalk = storyTalk.GetComponent<StoryDialogeManager>();
         storyTalk.continueDialouge = true;
+        yellow = yellow.GetComponent<SpriteChanger>();
     }
 
     // Update is called once per frame
@@ -23,10 +26,16 @@ public class speaker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange && storyTalk.npcIndex == 0&& storyTalk.continueDialouge)
         {
             storyTalk.StartCoroutine(storyTalk.StartDialouge());
+            
         }
 
         else if (Input.GetKeyDown(KeyCode.Space) && playerInRange && storyTalk.continueDialouge)
             storyTalk.TriggerContinueDialogue();
+          
+        if(storyTalk.finished)
+            yellow.isActive = false;
+        else
+            yellow.isActive = true;
 
 
     }

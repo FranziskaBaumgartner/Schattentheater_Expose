@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class craft : MonoBehaviour
@@ -14,11 +15,16 @@ public class craft : MonoBehaviour
     public SpriteRenderer tinysecond;
     public SpriteRenderer tinythird;
     public SpriteRenderer theather;
+    public SpriteRenderer cloud;
+    public Animator dust;
+    [SerializeField] private SpriteChanger yellow;
 
     public AudioSource pong;
     public AudioSource rumble;
     public AudioSource heavy;
     public AudioSource twinkle;
+
+    public bool build = false;
 
     private int count = 0;
     void Start()
@@ -32,16 +38,22 @@ public class craft : MonoBehaviour
         tinyfirst = tinyfirst.GetComponent<SpriteRenderer>();
         tinysecond = tinysecond.GetComponent<SpriteRenderer>();
         tinythird = tinythird.GetComponent<SpriteRenderer>();
+        yellow = yellow.GetComponent<SpriteChanger>();
     }
 
     void Update()
     {
+        if(talk.finished&&!build)
+            yellow.isActive = true;
+        else
+            yellow.isActive = false;
 
         if (hover == 1)
         {
             if (Input.GetKey(KeyCode.Space))
             {
                 count = 1;
+                
                 
             }
 
@@ -54,45 +66,56 @@ public class craft : MonoBehaviour
         }
         if (count >0)
         {
+            build = false;
             count++;
             switch (count)
             {
                 case 50:
                     first.SetActive(false);
                     break;
-
-                case 60:
+                case 100:
                     rumble.Play();
                     break;
-
-                case 120:
+                case 110:
                     tinyfirst.enabled = true;
                     break;
-                case 130:
+
+
+                case 150:
                     third.SetActive(false);
-                    break;
-                case 190:
-                    tinythird.enabled = true;
                     break;
                 case 200:
                     pong.Play();
                     break;
-                case 260:
+                case 210:
+                    tinythird.enabled = true;
+                    break;
+
+
+                case 250:
                     second.SetActive(false);
                     break;
-                case 270:
+                case 300:
                     heavy.Play();
                     break;
-                case 330:
+                case 310:
                     tinysecond.enabled = true;
                     break;
-                case 340:
+
+
+                case 500:
+                    
+                    cloud.GetComponent<SpriteRenderer>().enabled = true;
+                    dust.GetComponent<Animator>().SetTrigger("craftin");
                     gameObject.GetComponent<AudioSource>().Play();
                     break;
-                case 420:
+
+
+                case 850:
                     twinkle.Play();
+                    cloud.GetComponent<SpriteRenderer>().enabled = false;
                     break;
-                case 440:
+                case 930:
                     theather.enabled = true;
                     hover = -2;
                     break;

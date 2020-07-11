@@ -14,16 +14,20 @@ public class lernKind : MonoBehaviour
     public GameObject inventory;
     public GameObject guard;
 
+    [SerializeField] private SpriteChanger yellow;
+
     void Start()
     {
         kasten = kasten.GetComponent<lernKasten>();
         dialouge = dialouge.GetComponent<StoryDialogeManager>();
+        yellow = yellow.GetComponent<SpriteChanger>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !kasten.won && dialouge.finished)
         {
+            yellow.isActive = true;
             if (hover)
                 child.transform.SetParent(parent);
 
@@ -35,10 +39,12 @@ public class lernKind : MonoBehaviour
         }
         if (kasten.won && !inventory.activeSelf&&guard.activeSelf)
         {
+            
             parent.transform.DetachChildren();
             dialouge.npcIndex = 4;
             dialouge.StartCoroutine(dialouge.StartDialouge());
             inventory.SetActive(true);
+            yellow.isActive = false;
         }
 
     }
