@@ -27,8 +27,9 @@ public class TechnikMinigameBS : MonoBehaviour
             if (hover) 
                 child.transform.SetParent(parent);
             
-            else if (parent.transform.GetChild(0).CompareTag(this.gameObject.tag))
-                parent.transform.DetachChildren();
+            else if (parent.transform.childCount==1)
+                if(parent.transform.GetChild(0).CompareTag(this.gameObject.tag))
+                    parent.transform.DetachChildren();
                       
             if(parent.transform.childCount>1)
             {

@@ -29,9 +29,9 @@ public class craft : MonoBehaviour
         heavy = heavy.GetComponent<AudioSource>();
         twinkle = twinkle.GetComponent<AudioSource>();
         theather = theather.GetComponent<SpriteRenderer>();
-        tinyfirst = theather.GetComponent<SpriteRenderer>();
-        tinysecond = theather.GetComponent<SpriteRenderer>();
-        tinythird = theather.GetComponent<SpriteRenderer>();
+        tinyfirst = tinyfirst.GetComponent<SpriteRenderer>();
+        tinysecond = tinysecond.GetComponent<SpriteRenderer>();
+        tinythird = tinythird.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -61,38 +61,38 @@ public class craft : MonoBehaviour
                     first.SetActive(false);
                     break;
 
-                case 55:
+                case 60:
                     rumble.Play();
                     break;
 
-                case 105:
+                case 120:
                     tinyfirst.enabled = true;
                     break;
-                case 155:
+                case 130:
                     third.SetActive(false);
                     break;
-                case 160:
-                    pong.Play();
-                    break;
-                case 210:
+                case 190:
                     tinythird.enabled = true;
+                    break;
+                case 200:
+                    pong.Play();
                     break;
                 case 260:
                     second.SetActive(false);
                     break;
-                case 265:
+                case 270:
                     heavy.Play();
                     break;
-                case 315:
+                case 330:
                     tinysecond.enabled = true;
                     break;
-                case 365:
-                    twinkle.Play();
-                    break;
-                case 370:
+                case 340:
                     gameObject.GetComponent<AudioSource>().Play();
                     break;
-                case 4000:
+                case 420:
+                    twinkle.Play();
+                    break;
+                case 440:
                     theather.enabled = true;
                     hover = -2;
                     break;
