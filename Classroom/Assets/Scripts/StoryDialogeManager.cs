@@ -12,6 +12,7 @@ public class StoryDialogeManager : MonoBehaviour
     
     [TextArea]
     public string[] npcDialougeSentences;
+    public AudioClip[] npcSpeech;
 
     public Animator npcSpeechbubbleAnimator;
 
@@ -28,7 +29,7 @@ public class StoryDialogeManager : MonoBehaviour
     {
         if(dialogBox.activeSelf==false)
         {
-            //gameObject.GetComponent<AudioSource>().Pause();
+            gameObject.GetComponent<AudioSource>().Pause();
         }    
     }
     public IEnumerator StartDialouge()
@@ -46,8 +47,12 @@ public class StoryDialogeManager : MonoBehaviour
         
         speechIndex = npcIndex;
         npcDialougeText.text = string.Empty;
-        //gameObject.GetComponent<AudioSource>().clip = npcSpeech[speechIndex];
-        //gameObject.GetComponent<AudioSource>().Play();
+        if (npcSpeech[speechIndex]!= null)
+        {
+            gameObject.GetComponent<AudioSource>().clip = npcSpeech[speechIndex];
+            gameObject.GetComponent<AudioSource>().Play(); 
+        }
+
         foreach (char letter in npcDialougeSentences[npcIndex].ToCharArray())
         {
             npcDialougeText.text += letter;
@@ -60,9 +65,8 @@ public class StoryDialogeManager : MonoBehaviour
     public void TriggerContinueDialogue()
     {
         continueDialouge = false;
-        if (npcIndex == npcDialougeSentences.Length)
+        if (npcIndex == npcDialougeSentences.Length || finished == true)
         {
-
             npcDialougeText.text = string.Empty;
             //npcSpeechbubbleAnimator.SetTrigger("close");
             dialogBox.SetActive(false);
@@ -77,7 +81,7 @@ public class StoryDialogeManager : MonoBehaviour
         continueDialouge = false;
         yield return new WaitForSeconds(SpeechbubbleAnimationsdelay);
         
-        if (npcIndex < npcDialougeSentences.Length)
+        if (npcIndex <= npcDialougeSentences.Length)
         {
            
             npcDialougeText.text = string.Empty;
