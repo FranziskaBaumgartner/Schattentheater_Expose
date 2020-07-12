@@ -6,7 +6,7 @@ public class winningStory : MonoBehaviour
 {
     public StoryDialogeManager talk;
     public AudioClip bling;
-    //public Animator inventory;
+  
     public bool won = false;
     private bool hover;
     public GameObject inventory;
@@ -21,7 +21,7 @@ public class winningStory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&&hover&&!won)
+        if (Input.GetKeyDown(KeyCode.Space)&&hover&&!won&&talk.finished)
         {
             win();
         }
