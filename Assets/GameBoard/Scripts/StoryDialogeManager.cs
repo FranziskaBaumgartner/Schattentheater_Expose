@@ -25,13 +25,16 @@ public class StoryDialogeManager : MonoBehaviour
     public GameObject dialogBox;
 
     public bool continueDialouge=true;
-
+    [SerializeField] private GameObject button;
     void Update()
     {
         if(dialogBox.activeSelf==false)
-        {
             gameObject.GetComponent<AudioSource>().Pause();
-        }    
+        
+        if (continueDialouge)
+            button.SetActive(true);
+        else
+            button.SetActive(false);
     }
     public IEnumerator StartDialouge()
     {
