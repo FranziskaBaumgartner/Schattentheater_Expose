@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 1208650411}
   - component: {fileID: 1208650413}
   m_Layer: 0
-  m_Name: StoryDialogeManager
+  m_Name: StoryDialogeManagerClassroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

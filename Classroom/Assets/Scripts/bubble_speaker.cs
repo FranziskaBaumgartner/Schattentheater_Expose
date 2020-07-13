@@ -8,7 +8,7 @@ using TMPro;
 public class bubble_speaker : MonoBehaviour
 {
     private Animator anim;
-    public StoryDialogeManager dialouge;
+    public StoryDialogeManagerClassroom dialouge;
     public TextMeshPro DialougeText;
     public Text text;
     public SpriteRenderer dialogBox;
@@ -20,7 +20,7 @@ public class bubble_speaker : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator> ();
-        dialouge = dialouge.GetComponent<StoryDialogeManager>(); 
+        dialouge = dialouge.GetComponent<StoryDialogeManagerClassroom>(); 
         dialogBox = dialogBox.GetComponent<SpriteRenderer>(); 
         speaker_dialouge_finished = false;
         //text=GameObject.Find("Text_instruction").GetComponent<Text>(); 

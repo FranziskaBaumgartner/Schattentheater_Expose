@@ -7,7 +7,7 @@ public class bubble : MonoBehaviour
 {
 
     private Animator anim;
-    public StoryDialogeManager dialouge;
+    public StoryDialogeManagerClassroom dialouge;
     public TextMeshPro DialougeText;
 
     public bubble_speaker bubble_Speaker;
@@ -21,7 +21,7 @@ public class bubble : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator> ();
-        dialouge = dialouge.GetComponent<StoryDialogeManager>();
+        dialouge = dialouge.GetComponent<StoryDialogeManagerClassroom>();
         bubble_Speaker = bubble_Speaker.GetComponent<bubble_speaker>();
     }
 
