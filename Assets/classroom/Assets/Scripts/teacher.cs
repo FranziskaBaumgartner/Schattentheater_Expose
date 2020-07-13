@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lehrer : MonoBehaviour
+public class teacher : MonoBehaviour
 {
     public AudioSource audio;
 
